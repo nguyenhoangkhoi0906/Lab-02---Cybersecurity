@@ -10,7 +10,7 @@ import time
 import nacl.secret
 import nacl.utils
 
-CHUNK_SIZE = 1024 * 1024  # 1 MiB
+CHUNK_SIZE = 1024 * 1024  #1 MiB
 
 
 def G(key: bytes, nonce: bytes, n: int) -> bytes:
@@ -19,8 +19,8 @@ def G(key: bytes, nonce: bytes, n: int) -> bytes:
 
 
 def int_xor(a: bytes, b: bytes) -> bytes:
-    # XOR-ing as big integers is roughly 10x faster than a byte-by-byte
-    # loop for large buffers (per the lab's tip).
+    #XOR-ing as big integers is roughly 10x faster than a byte-by-byte
+    #loop for large buffers (per the lab's tip).
     n = len(a)
     ai = int.from_bytes(a, "little")
     bi = int.from_bytes(b, "little")
@@ -90,7 +90,7 @@ def main():
     with open("book.pdf", "rb") as f:
         first16_plain = f.read(16)
     with open("book.enc", "rb") as f:
-        f.read(16)  # skip the random prefix
+        f.read(16)  #skip the random prefix
         first16_cipher = f.read(16)
     print("first 16 bytes of plaintext  =", first16_plain.hex())
     print("first 16 bytes of ciphertext =", first16_cipher.hex())

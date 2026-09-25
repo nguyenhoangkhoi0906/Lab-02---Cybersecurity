@@ -8,8 +8,8 @@ MSGS = [M1, M2, M3]
 
 
 def random_bytes(size=16):
-    # os.urandom() reads from the same OS CSPRNG source as /dev/urandom
-    # on Linux, and also works on Windows, where /dev/urandom does not exist.
+    #os.urandom() reads from the same OS CSPRNG source as /dev/urandom
+    #on Linux, and also works on Windows, where /dev/urandom does not exist.
     return os.urandom(size)
 
 

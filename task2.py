@@ -26,7 +26,7 @@ def load_ciphertexts(path="ciphertexts.txt"):
 def main():
     c1, c2, c3 = load_ciphertexts()
 
-    # --- 1. c1 xor c2 ---
+    #1. c1 xor c2 
     print("--- Step 1: c1 xor c2 ---")
     x12 = strxor(c1, c2)
     print("c1 xor c2 =", x12.hex())
@@ -35,7 +35,7 @@ def main():
     print("M1 xor M2 =", expected.hex())
     print("equal?", x12 == expected)
 
-    # --- 2. Crib dragging with " the " ---
+    #2. Crib dragging with " the " 
     print("\n--- Step 2: crib dragging with \" the \" ---")
     crib = b" the "
     for i in range(len(x12) - len(crib) + 1):
@@ -43,7 +43,7 @@ def main():
         if is_lower_or_space(candidate):
             print(f"position {i:2d}: {candidate.decode()!r}")
 
-    # --- 3. Forge a key k' so that c1 decrypts to a chosen message ---
+    #3. Forge a key k' so that c1 decrypts to a chosen message 
     print("\n--- Step 3: forge a key for c1 ---")
     target = b"Nothing to see here."
     if len(target) < len(c1):

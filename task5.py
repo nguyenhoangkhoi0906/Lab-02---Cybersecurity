@@ -34,11 +34,11 @@ def main():
     print("decrypts to          =", decrypt(key, c).decode())
 
     target = b"PAY BOB 9900 USD"
-    delta = strxor(msg, target)  # nonzero only where the digits differ
+    delta = strxor(msg, target)  #nonzero only where the digits differ
     print("delta (msg xor target) =", delta.hex())
 
     c_forged = bytearray(c)
-    body = strxor(bytes(c_forged[24:]), delta)  # flip only the ciphertext body
+    body = strxor(bytes(c_forged[24:]), delta)  #flip only the ciphertext body
     c_forged[24:] = body
     c_forged = bytes(c_forged)
 
@@ -47,7 +47,7 @@ def main():
 
     print("\n--- Attack 2: same bit-flip on a real SecretBox ciphertext ---")
     box = nacl.secret.SecretBox(key)
-    box_c = box.encrypt(msg)  # layout: nonce (24B) || tag (16B) || body
+    box_c = box.encrypt(msg)  #layout: nonce (24B) || tag (16B) || body
     print("box ciphertext =", box_c.hex())
 
     box_c_forged = bytearray(box_c)

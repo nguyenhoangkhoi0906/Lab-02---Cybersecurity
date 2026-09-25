@@ -12,8 +12,8 @@ def strxor(a: bytes, b: bytes) -> bytes:
 
 def G(key: bytes, nonce: bytes, n: int) -> bytes:
     box = nacl.secret.SecretBox(key)
-    # box.encrypt(data, nonce).ciphertext = 16-byte tag || (data xor stream)
-    # with data = n zero bytes, this is tag || stream, so [16:] is the pad.
+    #box.encrypt(data, nonce).ciphertext = 16-byte tag || (data xor stream)
+    #with data = n zero bytes, this is tag || stream, so [16:] is the pad.
     return box.encrypt(bytes(n), nonce).ciphertext[16:]
 
 
